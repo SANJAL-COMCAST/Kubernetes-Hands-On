@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mongo
+  namespace: demo
 spec:
   serviceName: "mongo-service"
   replicas: 3
@@ -37,8 +38,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongo-service
+  namespace: demo
 spec:
-  clusterIP: None
+  clusterIP: None  
   selector:
     app: mongo
   ports:
